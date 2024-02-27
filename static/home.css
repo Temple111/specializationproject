@@ -1,0 +1,60 @@
+.custom-darkslategray {
+    background-color: darkslategray;
+  }
+
+  .custom {
+    background-color: rgb(94, 184, 154);
+  }
+
+  body {
+    background-color: rgb(0, 89, 81);
+  }
+  
+  .header {
+    background-color: #32CD32;
+  }
+  
+  .linkcolor {
+    background-color: #32CD32;
+  }
+  
+  .question-link {
+    color: initial;  /* Set the initial color of the text */
+    transition: color 0.3s ease;  /* Add a smooth transition effect */
+}
+
+.question-link:hover {
+    color: blue;  /* Set the color you want when hovering */
+    text-decoration: none;  /* Optional: Underline on hover */
+}
+
+
+/* Add this CSS to your style.css file or within a style tag in your HTML file */
+
+.nav-link1 {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  border: 2px solid #333; /* Border color */
+  border-radius: 25px; /* Adjust the value to control the roundness of the button */
+  text-align: center;
+  text-decoration: none;
+  color: #fff; /* Text color */
+  background-color: #32CD32; /* Button color */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link1:hover {
+  background-color: #333; /* Hover color */
+  color: #fff; /* Hover text color */
+}
+
+.nav-link1:active {
+  background-color: #004080; /* Active/Clicked color */
+  color: #fff; /* Active/Clicked text color */
+}
+
+.user{
+  margin-right: 100px;
+}
+
