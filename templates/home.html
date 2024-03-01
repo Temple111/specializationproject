@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>All users</title>
+    <title>Home</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,22 +24,22 @@
       <div class="header mb-2">{{ show_links(user) }}</div>
 
       <div class="questions_answered container text-light p-3">
-        <h1>All Users Page.</h1>
+        <h1>Questions Answered.</h1>
         <hr class="text-light" />
 
-        <div class="list-group " >  
-        {% if allusers %}
-        {% for eachuser in allusers %}
-          <a href="{{ url_for('addTeacher', id = eachuser['id']) }}" 
-          class="list-group-item list-group-item-action mb-1  {% if eachuser['teacher'] == 1 %}
-           linkcolor  {% endif %}    {% if eachuser['admin'] == 1 %} custom  {% endif %}">
-            Name : {{ eachuser['name'] }} Designation Teacher : {{
-              eachuser['teacher'] }} Admin : {{ eachuser['admin']}}
+        <div class="border p-2">
+          {% for eachone in fetching_all  %}
+          <a href="" class="text-light list-group-item">
+            <h4 class="list-group-item-heading">{{ eachone['question_text'] }}</h4>
+            <p class="list-group-item-heading-text">Answer : {{ eachone['answer_text'] }}</p>
+            <p class="list-group-item-heading-text">Asked By : {{ eachone['askersname'] }}</p>
+            <p class="list-group-item-heading-text">Answered By : {{ eachone['answeredby'] }}</p>
+            
           </a>
-        {% endfor %}
-      {% endif %}
+          {% endfor %}
+          <hr />
         </div>
-        
+
       </div>
     </div>
 

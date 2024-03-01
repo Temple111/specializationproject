@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>All users</title>
+    <title>Answer questions</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,22 +24,25 @@
       <div class="header mb-2">{{ show_links(user) }}</div>
 
       <div class="questions_answered container text-light p-3">
-        <h1>All Users Page.</h1>
+        <h1>Answer Questions.</h1>
         <hr class="text-light" />
-
-        <div class="list-group " >  
-        {% if allusers %}
-        {% for eachuser in allusers %}
-          <a href="{{ url_for('addTeacher', id = eachuser['id']) }}" 
-          class="list-group-item list-group-item-action mb-1  {% if eachuser['teacher'] == 1 %}
-           linkcolor  {% endif %}    {% if eachuser['admin'] == 1 %} custom  {% endif %}">
-            Name : {{ eachuser['name'] }} Designation Teacher : {{
-              eachuser['teacher'] }} Admin : {{ eachuser['admin']}}
-          </a>
-        {% endfor %}
-      {% endif %}
-        </div>
-        
+        <div>
+          <h6>{{ question['question_text'] }}</h6>
+          <form action = "{{ url_for('answerquestions', question_id = question['id'])}}"  class="m-3" method = "POST" >
+            <div class="form-floating mb-3">
+              <textarea
+                class="form-control text-dark"
+                placeholder="Enter your Answer."
+                id="floatingTextarea"
+                name="answer"
+              ></textarea>
+              <label for="floatingTextarea" class="text-dark">Enter the Answer.</label>
+            </div>
+  
+            <button type="submit" class="btn btn-sm btn-success">Submit</button>
+          </form>
+          
+        </div>   
       </div>
     </div>
 
