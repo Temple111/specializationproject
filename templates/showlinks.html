@@ -1,0 +1,47 @@
+
+{% macro show_links(user) %}
+<ul class="nav justify-content-center custom-darkslategray">
+    <li class="nav-item">
+      <a class="nav-link active nav-link1" aria-current="page" href="{{ url_for('index') }}">Home</a>
+    </li>
+    {% if not user %}
+    <li class="nav-item">
+      <a class="nav-link nav-link1" href="{{ url_for('login') }}">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link nav-link1" href="{{ url_for('register') }}">Register</a>
+    </li>
+    {% endif %}
+
+    {% if user and user['teacher'] == 0 and user['admin'] == 0 %} <!-- this condition is ayinng if u r a user and u r not a teacher or an admin, thats what the equals to zero-->
+    <li class="nav-item">
+      <a class="nav-link nav-link1" href="{{ url_for('askquestions') }}">Ask Question</a>
+    </li>
+    {% endif %}
+
+    {% if user and user['teacher'] == 1 %} <!-- this condition is ayinng if u r a user and u r not a teacher or an admin, thats what the equals to zero-->
+    <li class="nav-item">
+      <a class="nav-link nav-link1" href="{{ url_for('unansweredquestions') }}">Unanswered Question</a>
+    </li>
+    {% endif %}
+
+    {% if user and user['admin'] == 1 %}
+    <li class="nav-item">
+      <a class="nav-link nav-link1" href="{{ url_for('allusers') }}">All Users</a>
+    </li>
+    {% endif %}
+
+    {% if user %}
+    <li class="nav-item">
+      <a class="nav-link nav-link1 user" href="{{ url_for('logout') }}">Logout</a>
+    </li>
+    {% endif %}
+
+    {% if user %}
+    <li class="nav-item ms-2">
+      <a class="nav-link p-3 text-light " href="#">User : {{ user["name"] }}</a>
+    </li>
+    {% endif %}
+  </ul>
+
+  {% endmacro %}
